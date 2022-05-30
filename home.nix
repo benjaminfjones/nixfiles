@@ -6,6 +6,28 @@
   home.username = "bfj";
   home.homeDirectory = "/Users/bfj";
 
+  # Packages to install
+  home.packages = [
+    # foundational tools
+    pkgs.neovim
+    pkgs.tmux
+
+    # development tools
+    # TODO: setup asdf shell initialization
+    pkgs.asdf-vm
+    pkgs.nodejs
+    pkgs.rustup
+
+    # shell tools
+    pkgs.entr
+    pkgs.fd
+    pkgs.fzf
+    pkgs.fzf-zsh
+    pkgs.ripgrep
+    pkgs.scc
+    pkgs.starship
+  ];
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
