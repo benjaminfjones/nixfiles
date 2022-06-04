@@ -5,3 +5,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 # Install plugins
 nvim +PlugInstall +qa
+
+# Install coc-rust-analyzer
+nvim +"CocInstall coc-rust-analyzer"
