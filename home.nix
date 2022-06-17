@@ -18,6 +18,8 @@ in
     # foundational tools
     pkgs.neovim
     pkgs.tmux
+    pkgs.zellij
+    pkgs.htop
 
     # development tools
     # TODO: setup asdf shell initialization
@@ -43,6 +45,7 @@ in
   # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   home.file.".config/nvim/init.vim".source = ./init.vim;
   home.file.".config/nvim/coc-settings.vim".source = ./coc-settings.vim;
+  home.file.".config/zellij/config.yaml".source = ./zellij-config.yaml;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
