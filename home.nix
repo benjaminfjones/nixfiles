@@ -1,10 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  # Personal Info
+  name = "Benjamin F Jones";
+  email = "benjaminfjones@gmail.com";
+  username = "ubuntu";
+  homeDir = "/home/${username}";
+in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "ubuntu";
-  home.homeDirectory = "/home/ubuntu";
+  home.username = "${username}";
+  home.homeDirectory = "${homeDir}";
 
   # Packages to install
   home.packages = [
@@ -57,7 +64,18 @@
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
-    envExtra = "export PATH=/home/ubuntu/.nix-profile/bin:$PATH";
+    envExtra = ''
+      export PATH="${homeDir}/.nix-profile/bin:${homeDir}/.toolbox/bin:$PATH"
+
+      # help nix installed tools find the CA certs
+      export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt
+      export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+      export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
+
+      # asdf env
+      source ${homeDir}/.asdf/asdf.sh
+      source ${homeDir}/.asdf/completions/asdf.zsh
+    '';
     oh-my-zsh = {
         enable = true;
         plugins = ["sudo" "git" "asdf" "vi-mode"];
@@ -77,8 +95,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Benjamin F Jones";
-    userEmail = "benjaminfjones@gmail.com";
+    userName = "${name}";
+    userEmail = "${email}";
   };
 
   programs.tmux = {
@@ -90,5 +108,4 @@
 
   programs.fzf.enable = true;
   programs.starship.enable = true;
-
 }
