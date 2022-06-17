@@ -92,7 +92,14 @@ in
       vi = "nvim -p";
       gst = "git status";
       gits = "git status";
+      gitl = "git log --oneline";
+      glo = "git log --oneline --decorate";
       gcm = "git commit -m";
+      bws = "brazil ws";
+      bb = "brazil-build";
+      brc = "brazil-recursive-cmd";
+      bbb = "brc --allPackages brazil-build";
+      bbt = "brazil-build && brazil-build test";
     };
   };
 
