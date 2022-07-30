@@ -23,7 +23,7 @@ in
 
     # development tools
     # TODO: setup asdf shell initialization
-    pkgs.asdf-vm
+    # pkgs.asdf-vm
     pkgs.nodejs
     pkgs.rustup
 
@@ -76,8 +76,9 @@ in
       export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
 
       # asdf env
-      source ${homeDir}/.asdf/asdf.sh
-      source ${homeDir}/.asdf/completions/asdf.zsh
+      # TODO: figure out shell config for asdf; below doesn't work
+      # source ${pkgs.asdf}/asdf.sh
+      # source ${pkgs.asdf}/completions/asdf.zsh
     '';
     oh-my-zsh = {
         enable = true;
